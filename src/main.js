@@ -3,9 +3,13 @@ import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 import { routes } from './routes';
+import BlogModule from './blog/store/blog'
+import UserModule from './user/store/user'
 
 Vue.use(Vuex);
 Vue.use(VueRouter);
+
+
 
 const router = new VueRouter({
     routes: routes,
@@ -26,6 +30,10 @@ const router = new VueRouter({
 });
 
 const store = new Vuex.Store({
+    modules:{
+        blog: BlogModule,
+        user: UserModule
+    },
     state: {
         isLoggedIn: false
     },
