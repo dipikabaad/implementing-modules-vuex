@@ -4,13 +4,17 @@ export default{
         isLoggedIn: false
     },
 	  getters : {
-	  	isLoggedIn(state, getters, rootState) {
+	  	isLoggedIn(state, getters, rootState, rootGetters){
             return state.isLoggedIn;
         }
     },
     actions:{
-    	login({state, commit, rootState,}){
+    	login({state, commit, rootState,rootGetters}){
+    		if(!rootGetters.isBanned){
     		commit('login');
+    		} else {
+    			alert("get out of here");	
+    		}
 
     	},
     	logout({state, commit, rootState,}){
@@ -22,7 +26,7 @@ export default{
     			state.isLoggedIn = true;
     	},
     	logout(state){
-    		state.isLoggedin = false;
+    		state.isLoggedIn = false;
     	}
     }
 }

@@ -33,6 +33,14 @@ const store = new Vuex.Store({
     modules:{
         blog: BlogModule,
         user: UserModule
+    },
+    state:{
+        isBanned: true
+    },
+    getters: {
+        isBanned(state){
+            return state.isBanned;
+        }
     }
     
 });
