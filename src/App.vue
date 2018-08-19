@@ -27,7 +27,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
-
+    import { mapActions } from 'vuex';
     export default {
         computed: {
             ...mapGetters([
@@ -35,12 +35,10 @@
             ])
         },
         methods: {
-            login() {
-                this.$store.state.isLoggedIn = true;
-            },
-            logout() {
-                this.$store.state.isLoggedIn = false;
-            }
+            ...mapActions([
+                'login',
+                'logout'
+                ])
         }
     }
 </script>
