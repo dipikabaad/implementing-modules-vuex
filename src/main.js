@@ -35,11 +35,16 @@ const store = new Vuex.Store({
         user: UserModule
     },
     state:{
-        isBanned: true
+        isBanned: false
     },
     getters: {
         isBanned(state){
             return state.isBanned;
+        }
+    },
+    mutations:{
+        login(state){
+            console.log("login (root)");
         }
     }
     

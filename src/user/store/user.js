@@ -11,7 +11,7 @@ export default{
     actions:{
     	login({state, commit, rootState,rootGetters}){
     		if(!rootGetters.isBanned){
-    		commit('login');
+    		commit('login',null,{root: true});
     		} else {
     			alert("get out of here");	
     		}
@@ -23,6 +23,7 @@ export default{
     },
     mutations:{
     	login(state){
+    			console.log("login (user)");
     			state.isLoggedIn = true;
     	},
     	logout(state){
