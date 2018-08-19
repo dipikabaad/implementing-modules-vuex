@@ -1,19 +1,27 @@
 export default{
-	state:{
-
-	},
+	state: {
+        isLoggedIn: false
+    },
 	  getters : {
 	  	isLoggedIn(state, getters, rootState) {
-            return rootState.isLoggedIn;
+            return state.isLoggedIn;
         }
     },
     actions:{
     	login({state, commit, rootState,}){
-    		alert("isLoggedin is:" + rootState.isLoggedIn);
+    		commit('login');
 
     	},
     	logout({state, commit, rootState,}){
-    		
+    		commit('logout');
+    	}
+    },
+    mutations:{
+    	login(state){
+    			state.isLoggedIn = true;
+    	},
+    	logout(state){
+    		state.isLoggedin = false;
     	}
     }
 }
